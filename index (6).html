@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Piyush Raut | Strategist &amp; Writer</title>
+<meta name="description" content="Piyush Raut - Content Strategist and Copywriter. Part strategist, part writer."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#ffffff;--bg-alt:#f5f5f5;--accent:#111111;--accent-dim:rgba(0,0,0,0.06);--text:#111111;--gray:#444444;--light-gray:#777777;--card-bg:#ffffff;--card-border:#e0e0e0}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}a{text-decoration:none;color:inherit}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;transition:all 0.3s}.nav.scrolled{background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--card-border)}.nav-brand{font-weight:800;font-size:20px;color:var(--text)}.nav-brand span{opacity:0.4}.nav-links{display:flex;gap:28px}.nav-links a{font-size:13px;font-weight:500;color:var(--gray);letter-spacing:0.5px;transition:color 0.3s;text-transform:lowercase}.nav-links a:hover{color:var(--accent)}
+
+/* SPLIT HERO */
+.split-hero{height:100vh;position:relative;overflow:hidden;cursor:col-resize}
+.split-side{position:absolute;top:0;height:100%;display:flex;align-items:center;overflow:hidden}
+.split-left{left:0;width:50%;background:#111111;color:#ffffff;z-index:1}
+.split-right{right:0;width:50%;background:#ffffff;color:#111111;z-index:1}
+.split-inner{display:flex;align-items:center;justify-content:center;width:100vw;height:100%;position:relative}
+.split-left .split-inner{justify-content:flex-end;padding-right:12%}
+.split-right .split-inner{justify-content:flex-start;padding-left:12%}
+.split-text{pointer-events:none;max-width:320px}
+.split-label{font-size:12px;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;opacity:0.5}
+.split-title{font-size:52px;font-weight:800;letter-spacing:-2px;margin-bottom:6px;line-height:1.1}
+.split-name{font-size:18px;font-weight:300;margin-bottom:16px;opacity:0.6;font-family:'Lora',serif}
+.split-desc{font-size:13px;line-height:1.7;opacity:0.5;margin-bottom:22px;font-family:'Lora',serif}
+.split-tags{display:flex;flex-wrap:wrap;gap:6px}
+.split-tag{padding:4px 12px;border-radius:16px;font-size:10px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase}
+.split-left .split-tag{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.6)}
+.split-right .split-tag{background:rgba(0,0,0,0.06);color:rgba(0,0,0,0.5)}
+
+/* Photo in center */
+.split-photo-wrap{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:5;width:280px;height:280px;border-radius:50%;overflow:hidden;pointer-events:none}
+.split-photo-left,.split-photo-right{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden}
+.split-photo-left{clip-path:inset(0 50% 0 0)}
+.split-photo-right{clip-path:inset(0 0 0 50%)}
+.split-photo-left img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);opacity:0.9}
+.split-photo-right img{width:100%;height:100%;object-fit:cover}
+.split-photo-ring{position:absolute;top:-3px;left:-3px;right:-3px;bottom:-3px;border-radius:50%;border:3px solid #FF6B6B;pointer-events:none}
+
+.split-divider{position:absolute;top:0;bottom:0;width:4px;background:#FF6B6B;z-index:10;left:50%;transform:translateX(-50%);cursor:col-resize}
+.split-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:#FF6B6B;display:flex;align-items:center;justify-content:center;z-index:20;cursor:col-resize;box-shadow:0 4px 20px rgba(255,107,107,0.3);margin-top:180px}
+.split-handle svg{width:20px;height:20px}
+.split-hint{position:absolute;bottom:80px;left:50%;transform:translateX(-50%);z-index:12;text-align:center}
+.split-hint span{font-size:11px;color:#FF6B6B;font-weight:600;letter-spacing:1px;background:white;padding:6px 16px;border-radius:20px;box-shadow:0 2px 12px rgba(0,0,0,0.1)}
+.scroll-arrow{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:12;animation:float 3s infinite}
+@keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+.section{padding:80px 40px}.section-inner{max-width:960px;margin:0 auto}
+.section-label{font-size:12px;font-weight:600;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+.section-title{font-size:40px;font-weight:800;letter-spacing:-1.5px;margin-bottom:10px}
+.section-subtitle{font-family:'Lora',serif;font-size:17px;color:var(--gray);margin-bottom:44px;max-width:520px;line-height:1.7}
+.section-alt{background:var(--bg-alt)}
+.reveal{opacity:0;transform:translateY(20px);transition:all 0.7s cubic-bezier(0.25,0.46,0.45,0.94)}.reveal.visible{opacity:1;transform:translateY(0)}
+.story-body{font-family:'Lora',serif;font-size:17px;line-height:1.85;color:var(--text)}.story-body p{margin-bottom:18px}.story-body em{color:var(--text);font-style:italic}.story-body strong{color:var(--accent);font-weight:600}
+.story-callout{border-left:3px solid var(--accent);padding:20px 28px;margin:32px 0;background:var(--accent-dim);border-radius:0 8px 8px 0}.story-callout p{font-family:'Lora',serif;font-size:16px;line-height:1.7;color:var(--text);margin:0}
+.stats-bar{display:flex;justify-content:center;gap:64px;padding:40px;background:var(--accent);color:white}.stats-bar .stat{text-align:center}.stats-bar .stat-num{font-size:36px;font-weight:800;line-height:1}.stats-bar .stat-label{font-size:11px;opacity:0.6;margin-top:6px;letter-spacing:0.5px;font-weight:500}
+.timeline{position:relative;padding-left:32px;border-left:2px solid var(--card-border)}.timeline-node{position:relative;margin-bottom:40px}.timeline-node::before{content:'';position:absolute;left:-39px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}.timeline-node .period{font-size:12px;color:var(--accent);font-weight:600;letter-spacing:1px;margin-bottom:4px}.timeline-node h3{font-size:20px;font-weight:700;margin-bottom:2px}.timeline-node .role{font-size:13px;color:var(--gray);margin-bottom:10px}.timeline-node p{font-family:'Lora',serif;font-size:15px;line-height:1.7;color:var(--gray)}
+.formats-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.format-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:28px;transition:all 0.4s}.format-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.06)}.format-card.wide{grid-column:1/-1}
+.format-card .icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}.format-card h3{font-size:16px;font-weight:700;margin-bottom:8px}.format-card p{font-size:13px;line-height:1.65;color:var(--gray)}
+.sample-links{margin-top:16px;display:flex;flex-wrap:wrap;gap:6px}.sample-btn{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:16px;font-size:11px;font-weight:600;border:1px solid var(--accent);color:var(--accent);transition:all 0.3s}.sample-btn:hover{background:var(--accent);color:white}
+.thumb-row{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}.thumb{width:140px;height:80px;border-radius:6px;background:var(--bg-alt);border:1px solid var(--card-border);overflow:hidden;position:relative;display:inline-block;transition:all 0.3s}.thumb:hover{border-color:var(--accent);transform:scale(1.03)}.thumb img{width:100%;height:100%;object-fit:cover}.thumb .play-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:28px;height:28px;background:rgba(0,0,0,0.65);border-radius:50%;display:flex;align-items:center;justify-content:center}.thumb .play-icon svg{width:10px;height:10px}
+.principles-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.principle{background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:24px;transition:all 0.3s}.principle:hover{border-color:var(--accent)}.principle .num{font-size:32px;font-weight:800;color:var(--accent);opacity:0.15;line-height:1;margin-bottom:6px}.principle h3{font-size:15px;font-weight:700;margin-bottom:8px}.principle p{font-size:13px;line-height:1.65;color:var(--gray)}
+.beyond-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.beyond-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:24px;transition:all 0.3s}.beyond-card:hover{border-color:var(--accent)}.beyond-card h3{font-size:15px;font-weight:700;margin-bottom:8px}.beyond-card p{font-size:13px;line-height:1.65;color:var(--gray)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:500px}.contact-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;padding:18px}.contact-card .label{font-size:10px;font-weight:700;color:var(--accent);letter-spacing:1px;margin-bottom:4px;text-transform:uppercase}.contact-card .value{font-size:14px;font-weight:600}.contact-card a{color:var(--text);transition:color 0.3s}.contact-card a:hover{color:var(--gray)}
+.closing-quote{margin-top:40px;padding:24px 32px;border-radius:12px;background:var(--accent-dim);border-left:3px solid var(--accent);max-width:500px}.closing-quote p{font-family:'Lora',serif;font-size:16px;font-style:italic;line-height:1.7}
+.footer{text-align:center;padding:32px;font-size:12px;color:var(--light-gray);border-top:1px solid var(--card-border)}
+@media(max-width:768px){.split-title{font-size:32px}.split-text{max-width:240px}.split-tags{display:none}.split-photo-wrap{width:180px;height:180px}.split-handle{margin-top:120px}.stats-bar{flex-wrap:wrap;gap:32px}.formats-grid,.principles-grid,.beyond-grid{grid-template-columns:1fr}.format-card.wide{grid-column:auto}.section{padding:60px 20px}.section-title{font-size:30px}.nav{padding:14px 20px}.nav-links{gap:16px}.nav-links a{font-size:11px}.split-left .split-inner{padding-right:6%}.split-right .split-inner{padding-left:6%}}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav"><a href="#" class="nav-brand">piyush<span>.raut</span></a><div class="nav-links"><a href="#story">story</a><a href="#experience">experience</a><a href="#formats">work</a><a href="#thinking">thinking</a><a href="#contact">contact</a></div></nav>
+
+<!-- SPLIT HERO WITH PHOTO -->
+<section class="split-hero" id="splitHero">
+<div class="split-side split-left" id="splitLeft">
+<div class="split-inner">
+<div class="split-text">
+<div class="split-label"># strategist</div>
+<div class="split-title">Strategist.</div>
+<div class="split-name">Piyush Raut</div>
+<div class="split-desc">I build content systems, campaign frameworks, and brand architectures that drive business outcomes.</div>
+<div class="split-tags"><span class="split-tag">Content Systems</span><span class="split-tag">Brand Strategy</span><span class="split-tag">Campaign Frameworks</span><span class="split-tag">Data-Led</span></div>
+</div>
+</div>
+</div>
+<div class="split-side split-right" id="splitRight">
+<div class="split-inner">
+<div class="split-text">
+<div class="split-label">// writer</div>
+<div class="split-title">Writer.</div>
+<div class="split-name">Piyush Raut</div>
+<div class="split-desc">I write words that make brands memorable. Ad copy, scripts, blogs, and brand voices that connect with real people.</div>
+<div class="split-tags"><span class="split-tag">Ad Copy</span><span class="split-tag">Brand Voice</span><span class="split-tag">Scripts</span><span class="split-tag">Storytelling</span></div>
+</div>
+</div>
+</div>
+<!-- Center photo -->
+<div class="split-photo-wrap" id="photoWrap">
+<div class="split-photo-left" id="photoLeft"><img src="photo.jpg" alt="Piyush Raut"/></div>
+<div class="split-photo-right" id="photoRight"><img src="photo.jpg" alt="Piyush Raut"/></div>
+<div class="split-photo-ring"></div>
+</div>
+<div class="split-divider" id="splitDivider"></div>
+<div class="split-handle" id="splitHandle"><svg viewBox="0 0 20 20" fill="none"><path d="M7 4L3 10L7 16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 4L17 10L13 16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div class="split-hint"><span>drag to explore</span></div>
+<div class="scroll-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4L10 16M10 16L5 11M10 16L15 11" stroke="#FF6B6B" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+</section>
+
+<div class="stats-bar">
+<div class="stat"><div class="stat-num" data-count="4">0</div><div class="stat-label">Years</div></div>
+<div class="stat"><div class="stat-num" data-count="10">0</div><div class="stat-label">Clients</div></div>
+<div class="stat"><div class="stat-num" data-count="2">0</div><div class="stat-label">Brands Led</div></div>
+<div class="stat"><div class="stat-num" data-count="5">0</div><div class="stat-label">Content Formats</div></div>
+</div>
+
+<section id="story" class="section"><div class="section-inner"><div class="reveal"><div class="section-label">the origin</div><h2 class="section-title">It started with a heartbreak.</h2></div><div class="reveal story-body" style="margin-top:32px;max-width:680px"><p>Five years ago, in the middle of an engineering degree, I went through a personal loss that left me searching for an outlet. I started writing. Diary pages filled with poems, short stories, and raw observations about people and what moves them.</p><p>When I began posting these on social media, something unexpected happened: people responded. Deeply, viscerally. The writing was connecting in ways I had not anticipated.</p><div class="story-callout"><p><strong>That was my earliest insight into what makes content work: more than the right words, it is the feeling that we acknowledge.</strong></p></div><p>A year later, an entrepreneur from Aurangabad introduced me to the business side of writing. From expression to persuasion. From diary pages to brand pages. I tried balancing engineering and writing for a while, but eventually chose to give my passion a real chance and took a leap of faith. That shift made me deeply curious not just about how to write, but why certain content works and most does not.</p><p>I sharpened my skills across freelance clients and industries, then went full-time at Dr Batra's Healthcare. Today, I look after content strategy for Bold Care, a brand working in the taboo category.</p><p>My engineering background shaped the way I think about content. I bring structure to creativity, frameworks to storytelling, and a builder's mindset to everything I write.</p></div></div></section>
+
+<section id="experience" class="section section-alt"><div class="section-inner"><div class="reveal"><div class="section-label">experience</div><h2 class="section-title">Where I've built.</h2><div class="section-subtitle">From freelance writing to leading content for two D2C brands.</div></div><div class="timeline reveal"><div class="timeline-node"><div class="period">MAY 2025 - PRESENT</div><h3>Senior Content Strategist</h3><div class="role">Bold Care &amp; Bloom by Bold Care</div><p>End-to-end content ownership across two wellness brands. From brand voice and campaign narratives to ad copy, PDPs, packaging, influencer scripts, and CRM flows. Consistently improved CTR and engagement across paid and organic channels. Reporting directly to the founders.</p></div><div class="timeline-node"><div class="period">2023 - APRIL 2025</div><h3>Content Executive</h3><div class="role">Dr Batra's Healthcare</div><p>Took a legacy healthcare brand into digital-first content. Worked directly with senior leadership and across marketing, branding, and clinical teams. Grew the brand's digital presence and improved content engagement across platforms.</p></div><div class="timeline-node"><div class="period">2020 - 2021</div><h3>Content Writer</h3><div class="role">S-Forzo Traders Pvt Ltd</div><p>Ran content across three ventures under one roof. Website, social, product copy, and creative coordination with design teams.</p></div><div class="timeline-node"><div class="period">2019 - PRESENT</div><h3>Freelance Content Writer</h3><div class="role">Multiple Clients</div><p>Sharpened my craft across industries. Website copy, SEO, T&amp;C docs, white papers, and book editing for clients in tech, services, and education. Multiple clients retained for repeat projects.</p></div></div></div></section>
+
+<section id="formats" class="section"><div class="section-inner"><div class="reveal"><div class="section-label">content formats</div><h2 class="section-title">What I create.</h2><div class="section-subtitle">I work across multiple content formats that a modern brand needs.</div></div><div class="formats-grid" id="formats-grid"></div></div></section>
+
+<section id="thinking" class="section section-alt"><div class="section-inner"><div class="reveal"><div class="section-label">how I think</div><h2 class="section-title">Principles.</h2><div class="section-subtitle">The mental models behind my work.</div></div><div class="principles-grid" id="principles-grid"></div></div></section>
+
+<section class="section"><div class="section-inner"><div class="reveal"><div class="section-label">beyond the brief</div><h2 class="section-title">The whole picture.</h2></div><div class="beyond-grid" style="margin-top:32px"><div class="reveal beyond-card"><h3>Spoken Word Artist</h3><p>Performed at TEDx NIELIT, Kommune, and multiple open mics across the city. Writing and performing poetry keeps me close to the raw, emotional side of language that makes professional writing hit harder.</p></div><div class="reveal beyond-card" style="transition-delay:80ms"><h3>Content Head, Alfaaz</h3><p>Core member and content head of a creative arts community. Built the content presence from scratch, organized events, and proved that strong strategy works even with zero budget.</p></div><div class="reveal beyond-card" style="transition-delay:160ms"><h3>Magazine Editor</h3><p>Curated, edited, and published 3 editions of the departmental magazine. Managing submissions, editorial quality, and deadlines across contributors.</p></div><div class="reveal beyond-card" style="transition-delay:240ms"><h3>Personal Content Creator</h3><p>I create content on my own social media exploring poetry, storytelling, and observations about culture and people. It is my lab for testing what resonates.</p></div></div></div></section>
+
+<section id="contact" class="section section-alt"><div class="section-inner"><div class="reveal"><div class="section-label">let's connect</div><h2 class="section-title">Get in touch.</h2><div class="section-subtitle">Whether you need content strategy, brand voice, or a strategist who executes.</div></div><div class="reveal contact-grid"><div class="contact-card"><div class="label">Email</div><div class="value"><a href="mailto:piyushraut832@gmail.com">piyushraut832@gmail.com</a></div></div><div class="contact-card"><div class="label">Phone</div><div class="value"><a href="tel:8793163677">8793163677</a></div></div><div class="contact-card"><div class="label">LinkedIn</div><div class="value"><a href="https://linkedin.com/in/piyushhraut" target="_blank">linkedin.com/in/piyushhraut</a></div></div><div class="contact-card"><div class="label">Location</div><div class="value">Thane, Mumbai</div></div></div><div class="reveal closing-quote" style="transition-delay:100ms"><p>"Being creative is easy. Being creative with intent, with a brand's voice, with a business outcome at the end. That is rare. That is what I bring."</p></div></div></section>
+
+<footer class="footer">&copy; 2026 Piyush Raut &middot; Senior Content Strategist &amp; Copywriter</footer>
+
+<script>
+/* SPLIT HERO */
+var hero=document.getElementById('splitHero'),left=document.getElementById('splitLeft'),divider=document.getElementById('splitDivider'),handle=document.getElementById('splitHandle'),photoLeft=document.getElementById('photoLeft'),photoRight=document.getElementById('photoRight'),dragging=false;
+function setPos(x){var r=hero.getBoundingClientRect();var p=((x-r.left)/r.width)*100;p=Math.max(20,Math.min(80,p));left.style.width=p+'%';divider.style.left=p+'%';handle.style.left=p+'%';photoLeft.style.clipPath='inset(0 '+(100-p)+'% 0 0)';photoRight.style.clipPath='inset(0 0 0 '+p+'%)'}
+hero.addEventListener('mousedown',function(e){dragging=true;setPos(e.clientX)});document.addEventListener('mousemove',function(e){if(dragging){e.preventDefault();setPos(e.clientX)}});document.addEventListener('mouseup',function(){dragging=false});
+hero.addEventListener('touchstart',function(e){dragging=true;setPos(e.touches[0].clientX)},{passive:true});document.addEventListener('touchmove',function(e){if(dragging)setPos(e.touches[0].clientX)},{passive:true});document.addEventListener('touchend',function(){dragging=false});
+var ap=50,ad=1,ac=0;var aa=setInterval(function(){ap+=ad*0.3;if(ap>55||ap<45)ad*=-1;ac++;if(ac>100){clearInterval(aa);return}var r=hero.getBoundingClientRect();setPos(r.left+r.width*(ap/100))},30);
+hero.addEventListener('mousedown',function(){clearInterval(aa)});hero.addEventListener('touchstart',function(){clearInterval(aa)});
+
+/* FORMATS */
+var formats=[
+{icon:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>',iconBg:'rgba(255,107,107,0.08)',title:"Short-Form Video",desc:"Reels, YouTube Shorts, snackable video content. I write hooks, scripts, and visual direction for sub-60s content designed for thumb-stopping engagement.",links:[{label:"UGC Ad - Delay Spray",href:"https://www.instagram.com/reel/DObBAG9DaeW/"},{label:"Launch Video",href:"https://www.instagram.com/reel/DItI8bbT3y7"},{label:"Moment Marketing",href:"https://www.instagram.com/p/DPBDW5IiCwr/"},{label:"Bloom Series",href:"https://www.instagram.com/reel/DLsFo7nSm2i/"},{label:"Bloom Series 2",href:"https://www.instagram.com/reel/DP1Ci3tEsEM/"}],thumbs:[],thumbLinks:[]},
+{icon:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6C5CE7" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="3"/><line x1="8" y1="2" x2="8" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg>',iconBg:'rgba(108,92,231,0.08)',title:"Long-Form Video",desc:"YouTube videos, brand films, product explainers, founder interviews. I develop scripts, brand narrative arcs, and content briefs that balance storytelling with brand messaging.",links:[{label:"Bold Care Vox Pop",href:"https://www.youtube.com/watch?v=BLG_zDcInGE"},{label:"Dr Batra's Podcast",href:"https://www.youtube.com/watch?v=DcYXmDGz3qE"},{label:"Dr Batra's Ad Film",href:"https://www.youtube.com/watch?v=f2gbECm610U"}],thumbs:["https://img.youtube.com/vi/BLG_zDcInGE/mqdefault.jpg","https://img.youtube.com/vi/DcYXmDGz3qE/mqdefault.jpg","https://img.youtube.com/vi/f2gbECm610U/mqdefault.jpg"],thumbLinks:["https://www.youtube.com/watch?v=BLG_zDcInGE","https://www.youtube.com/watch?v=DcYXmDGz3qE","https://www.youtube.com/watch?v=f2gbECm610U"],wide:true},
+{icon:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ECDC4" stroke-width="2" stroke-linecap="round"><path d="M4 22h16a2 2 0 002-2V4a2 2 0 00-2-2H8a2 2 0 00-2 2v16"/><line x1="10" y1="8" x2="18" y2="8"/><line x1="10" y1="12" x2="16" y2="12"/><line x1="10" y1="16" x2="14" y2="16"/></svg>',iconBg:'rgba(78,205,196,0.08)',title:"PR Articles & Press",desc:"Founder interviews, press releases, industry coverage, and digital PR. Content that builds brand credibility and positions founders as category experts.",links:[{label:"Bold Care x Anurag Kashyap",href:"https://www.exchange4media.com/industry-briefing-news/bold-care-partners-with-anurag-kashyap-samay-raina-in-its-latest-campaign-film-147044.html"},{label:"Dr Batra's Xogen - The Wire",href:"https://thewire.in/ptiprnews/dr-batras-launches-xogen-advance-indias-fastest-and-only-hair-growth-treatment-with-10-billion-exosomes"}],thumbs:[],thumbLinks:[]},
+{icon:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFD93D" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',iconBg:'rgba(255,217,61,0.08)',title:"Social Media Content",desc:"Instagram carousels, stories, captions, LinkedIn posts. I build content architectures with repeatable formats, hook libraries, and posting logic native to each platform.",links:[{label:"Bold Care Carousel",href:"https://www.instagram.com/p/DOV20ELknCI/?img_index=1"},{label:"Bloom Carousel",href:"https://www.instagram.com/p/DRj2okHDJFo/?img_index=1"}],thumbs:[],thumbLinks:[]},
+{icon:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2" stroke-linecap="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>',iconBg:'rgba(255,107,107,0.08)',title:"Blogs & SEO Content",desc:"Long-form articles, listicles, how-to guides. Built around topic clusters and keyword strategy to drive organic traffic and establish topical authority.",links:[{label:"Dr Batra's - Hair Loss Guide",href:"https://www.drbatras.com/best-homeopathic-medicines-for-hair-loss"},{label:"Bold Care - Condoms Guide",href:"https://boldcare.in/blogs/blogs/best-ultra-thin-condoms-in-india-2025-guide"},{label:"Nature Nuskha - Hair Mist",href:"https://naturenuskha.com/blogs/news/hair-mist-for-all-round-hair-nourishment"}],thumbs:[],thumbLinks:[]}
+];
+var principles=[{title:"Strategy before creativity",body:"A beautiful carousel that does not serve a business objective is decoration. I start with: who is this for, and what should they do after?"},{title:"Engineer's mind, writer's heart",body:"My B.Tech trained me to think in frameworks and optimize for outcomes. Creativity without structure is chaos."},{title:"Consumer psychology first",body:"Every piece starts with a human insight. I research comments, DMs, reviews, and conversations before writing."},{title:"Data tells the next story",body:"I track what performs, study why it worked, and feed those learnings back into the next brief. Every campaign is a dataset for the one after it."},{title:"Knowing what to do",body:"Understanding how algorithms reward specific formats, and designing content native to each surface. That is strategy."},{title:"Taboo is a superpower",body:"Marketing in sensitive categories forces sharper thinking: tighter restrictions, deeper empathy, more creative solutions."}];
+
+document.getElementById('formats-grid').innerHTML=formats.map(function(f,i){var lh=f.links.map(function(l){return '<a href="'+l.href+'" target="_blank" class="sample-btn">'+l.label+' &#8599;</a>'}).join('');var th='';if(f.thumbs&&f.thumbs.length>0&&f.thumbs.some(function(t){return t!==''})){th='<div class="thumb-row">';f.thumbs.forEach(function(t,ti){if(t){var lk=f.thumbLinks[ti]||'#';th+='<a href="'+lk+'" target="_blank" class="thumb"><img src="'+t+'" alt="Video"/><div class="play-icon"><svg viewBox="0 0 10 10" fill="white"><polygon points="2,0 10,5 2,10"/></svg></div></a>'}});th+='</div>'}var wc=f.wide?' wide':'';return '<div class="format-card reveal'+wc+'" style="transition-delay:'+i*60+'ms"><div class="icon" style="background:'+f.iconBg+'">'+f.icon+'</div><h3>'+f.title+'</h3><p>'+f.desc+'</p>'+th+'<div class="sample-links">'+lh+'</div></div>'}).join('');
+document.getElementById('principles-grid').innerHTML=principles.map(function(p,i){return '<div class="principle reveal" style="transition-delay:'+i*70+'ms"><div class="num">'+String(i+1).padStart(2,'0')+'</div><h3>'+p.title+'</h3><p>'+p.body+'</p></div>'}).join('');
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.08});document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)});
+var cObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting&&!e.target.dataset.done){e.target.dataset.done='1';var end=+e.target.dataset.count,step=end/75,c=0;var t=setInterval(function(){c+=step;if(c>=end){e.target.textContent=end+'+';clearInterval(t)}else e.target.textContent=Math.floor(c)+'+'},16)}})},{threshold:0.5});document.querySelectorAll('[data-count]').forEach(function(el){cObs.observe(el)});
+</script>
+</body>
+</html>
