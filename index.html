@@ -10,40 +10,39 @@
 <style>
 :root{--bg:#ffffff;--bg-alt:#f5f5f5;--accent:#111111;--accent-dim:rgba(0,0,0,0.06);--text:#111111;--gray:#444444;--light-gray:#777777;--card-bg:#ffffff;--card-border:#e0e0e0}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}a{text-decoration:none;color:inherit}
-.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;transition:all 0.3s}.nav.scrolled{background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--card-border)}.nav-brand{font-weight:800;font-size:20px;color:var(--text)}.nav-brand span{opacity:0.4}.nav-links{display:flex;gap:28px}.nav-links a{font-size:13px;font-weight:500;color:var(--gray);letter-spacing:0.5px;transition:color 0.3s;text-transform:lowercase}.nav-links a:hover{color:var(--accent)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;transition:all 0.3s}.nav.scrolled{background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--card-border)}.nav-brand{font-weight:800;font-size:20px;color:white}.nav.scrolled .nav-brand{color:var(--text)}.nav-brand span{opacity:0.4}.nav-links{display:flex;gap:28px}.nav-links a{font-size:13px;font-weight:500;color:rgba(255,255,255,0.7);letter-spacing:0.5px;transition:color 0.3s;text-transform:lowercase}.nav-links a:hover{color:white}.nav.scrolled .nav-links a{color:var(--gray)}.nav.scrolled .nav-links a:hover{color:var(--accent)}
 
-/* SPLIT HERO */
+/* SPLIT HERO - OPTION B: FULL BG PHOTO */
 .split-hero{height:100vh;position:relative;overflow:hidden;cursor:col-resize}
+.split-bg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0}
+.split-bg img{width:100%;height:100%;object-fit:cover;object-position:center top}
 .split-side{position:absolute;top:0;height:100%;display:flex;align-items:center;overflow:hidden}
-.split-left{left:0;width:50%;background:#111111;color:#ffffff;z-index:1}
-.split-right{right:0;width:50%;background:#ffffff;color:#111111;z-index:1}
-.split-inner{display:flex;align-items:center;justify-content:center;width:100vw;height:100%;position:relative}
-.split-left .split-inner{justify-content:flex-end;padding-right:12%}
-.split-right .split-inner{justify-content:flex-start;padding-left:12%}
-.split-text{pointer-events:none;max-width:320px}
-.split-label{font-size:12px;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;opacity:0.5}
-.split-title{font-size:52px;font-weight:800;letter-spacing:-2px;margin-bottom:6px;line-height:1.1}
-.split-name{font-size:18px;font-weight:300;margin-bottom:16px;opacity:0.6;font-family:'Lora',serif}
-.split-desc{font-size:13px;line-height:1.7;opacity:0.5;margin-bottom:22px;font-family:'Lora',serif}
+.split-left{left:0;width:50%;z-index:2}
+.split-left-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(17,17,17,0.82);backdrop-filter:blur(2px)}
+.split-right{right:0;width:50%;z-index:2}
+.split-right-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.78);backdrop-filter:blur(2px)}
+.split-inner{position:relative;z-index:3;display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:40px}
+.split-text{max-width:340px;pointer-events:none}
+.split-label{font-size:12px;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
+.split-title{font-size:56px;font-weight:800;letter-spacing:-2px;margin-bottom:6px;line-height:1.1}
+.split-name{font-size:18px;font-weight:300;margin-bottom:16px;opacity:0.7;font-family:'Lora',serif}
+.split-desc{font-size:14px;line-height:1.7;opacity:0.6;margin-bottom:24px;font-family:'Lora',serif}
 .split-tags{display:flex;flex-wrap:wrap;gap:6px}
 .split-tag{padding:4px 12px;border-radius:16px;font-size:10px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase}
+.split-left .split-label{color:rgba(255,255,255,0.4)}
+.split-left .split-title,.split-left .split-name{color:white}
+.split-left .split-desc{color:rgba(255,255,255,0.5)}
 .split-left .split-tag{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.6)}
+.split-right .split-label{color:rgba(0,0,0,0.35)}
+.split-right .split-title,.split-right .split-name{color:#111}
+.split-right .split-desc{color:rgba(0,0,0,0.45)}
 .split-right .split-tag{background:rgba(0,0,0,0.06);color:rgba(0,0,0,0.5)}
 
-/* Photo in center */
-.split-photo-wrap{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:5;width:280px;height:280px;border-radius:50%;overflow:hidden;pointer-events:none}
-.split-photo-left,.split-photo-right{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden}
-.split-photo-left{clip-path:inset(0 50% 0 0)}
-.split-photo-right{clip-path:inset(0 0 0 50%)}
-.split-photo-left img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);opacity:0.9}
-.split-photo-right img{width:100%;height:100%;object-fit:cover}
-.split-photo-ring{position:absolute;top:-3px;left:-3px;right:-3px;bottom:-3px;border-radius:50%;border:3px solid #FF6B6B;pointer-events:none}
-
-.split-divider{position:absolute;top:0;bottom:0;width:4px;background:#FF6B6B;z-index:10;left:50%;transform:translateX(-50%);cursor:col-resize}
-.split-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:#FF6B6B;display:flex;align-items:center;justify-content:center;z-index:20;cursor:col-resize;box-shadow:0 4px 20px rgba(255,107,107,0.3);margin-top:180px}
-.split-handle svg{width:20px;height:20px}
+.split-divider{position:absolute;top:0;bottom:0;width:4px;background:#FF6B6B;z-index:10;left:50%;transform:translateX(-50%)}
+.split-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:#FF6B6B;display:flex;align-items:center;justify-content:center;z-index:20;cursor:col-resize;box-shadow:0 4px 24px rgba(255,107,107,0.4)}
+.split-handle svg{width:22px;height:22px}
 .split-hint{position:absolute;bottom:80px;left:50%;transform:translateX(-50%);z-index:12;text-align:center}
-.split-hint span{font-size:11px;color:#FF6B6B;font-weight:600;letter-spacing:1px;background:white;padding:6px 16px;border-radius:20px;box-shadow:0 2px 12px rgba(0,0,0,0.1)}
+.split-hint span{font-size:11px;color:#FF6B6B;font-weight:600;letter-spacing:1px;background:white;padding:6px 16px;border-radius:20px;box-shadow:0 2px 12px rgba(0,0,0,0.15)}
 .scroll-arrow{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:12;animation:float 3s infinite}
 @keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
 
@@ -66,41 +65,37 @@
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:500px}.contact-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;padding:18px}.contact-card .label{font-size:10px;font-weight:700;color:var(--accent);letter-spacing:1px;margin-bottom:4px;text-transform:uppercase}.contact-card .value{font-size:14px;font-weight:600}.contact-card a{color:var(--text);transition:color 0.3s}.contact-card a:hover{color:var(--gray)}
 .closing-quote{margin-top:40px;padding:24px 32px;border-radius:12px;background:var(--accent-dim);border-left:3px solid var(--accent);max-width:500px}.closing-quote p{font-family:'Lora',serif;font-size:16px;font-style:italic;line-height:1.7}
 .footer{text-align:center;padding:32px;font-size:12px;color:var(--light-gray);border-top:1px solid var(--card-border)}
-@media(max-width:768px){.split-title{font-size:32px}.split-text{max-width:240px}.split-tags{display:none}.split-photo-wrap{width:180px;height:180px}.split-handle{margin-top:120px}.stats-bar{flex-wrap:wrap;gap:32px}.formats-grid,.principles-grid,.beyond-grid{grid-template-columns:1fr}.format-card.wide{grid-column:auto}.section{padding:60px 20px}.section-title{font-size:30px}.nav{padding:14px 20px}.nav-links{gap:16px}.nav-links a{font-size:11px}.split-left .split-inner{padding-right:6%}.split-right .split-inner{padding-left:6%}}
+@media(max-width:768px){.split-title{font-size:36px}.split-text{max-width:240px}.split-tags{display:none}.stats-bar{flex-wrap:wrap;gap:32px}.formats-grid,.principles-grid,.beyond-grid{grid-template-columns:1fr}.format-card.wide{grid-column:auto}.section{padding:60px 20px}.section-title{font-size:30px}.nav{padding:14px 20px}.nav-links{gap:16px}.nav-links a{font-size:11px}}
 </style>
 </head>
 <body>
 <nav class="nav" id="nav"><a href="#" class="nav-brand">piyush<span>.raut</span></a><div class="nav-links"><a href="#story">story</a><a href="#experience">experience</a><a href="#formats">work</a><a href="#thinking">thinking</a><a href="#contact">contact</a></div></nav>
 
-<!-- SPLIT HERO WITH PHOTO -->
+<!-- SPLIT HERO - OPTION B -->
 <section class="split-hero" id="splitHero">
+<!-- Full background photo -->
+<div class="split-bg"><img src="photo.jpg" alt="Piyush Raut"/></div>
+<!-- Left: dark overlay -->
 <div class="split-side split-left" id="splitLeft">
-<div class="split-inner">
-<div class="split-text">
+<div class="split-left-overlay"></div>
+<div class="split-inner"><div class="split-text">
 <div class="split-label"># strategist</div>
 <div class="split-title">Strategist.</div>
 <div class="split-name">Piyush Raut</div>
 <div class="split-desc">I build content systems, campaign frameworks, and brand architectures that drive business outcomes.</div>
-<div class="split-tags"><span class="split-tag">Content Systems</span><span class="split-tag">Brand Strategy</span><span class="split-tag">Campaign Frameworks</span><span class="split-tag">Data-Led</span></div>
+<div class="split-tags"><span class="split-tag">Content Systems</span><span class="split-tag">Brand Strategy</span><span class="split-tag">Campaigns</span><span class="split-tag">Data-Led</span></div>
+</div></div>
 </div>
-</div>
-</div>
+<!-- Right: light overlay -->
 <div class="split-side split-right" id="splitRight">
-<div class="split-inner">
-<div class="split-text">
+<div class="split-right-overlay"></div>
+<div class="split-inner"><div class="split-text">
 <div class="split-label">// writer</div>
 <div class="split-title">Writer.</div>
 <div class="split-name">Piyush Raut</div>
 <div class="split-desc">I write words that make brands memorable. Ad copy, scripts, blogs, and brand voices that connect with real people.</div>
 <div class="split-tags"><span class="split-tag">Ad Copy</span><span class="split-tag">Brand Voice</span><span class="split-tag">Scripts</span><span class="split-tag">Storytelling</span></div>
-</div>
-</div>
-</div>
-<!-- Center photo -->
-<div class="split-photo-wrap" id="photoWrap">
-<div class="split-photo-left" id="photoLeft"><img src="photo.jpg" alt="Piyush Raut"/></div>
-<div class="split-photo-right" id="photoRight"><img src="photo.jpg" alt="Piyush Raut"/></div>
-<div class="split-photo-ring"></div>
+</div></div>
 </div>
 <div class="split-divider" id="splitDivider"></div>
 <div class="split-handle" id="splitHandle"><svg viewBox="0 0 20 20" fill="none"><path d="M7 4L3 10L7 16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 4L17 10L13 16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -130,15 +125,13 @@
 <footer class="footer">&copy; 2026 Piyush Raut &middot; Senior Content Strategist &amp; Copywriter</footer>
 
 <script>
-/* SPLIT HERO */
-var hero=document.getElementById('splitHero'),left=document.getElementById('splitLeft'),divider=document.getElementById('splitDivider'),handle=document.getElementById('splitHandle'),photoLeft=document.getElementById('photoLeft'),photoRight=document.getElementById('photoRight'),dragging=false;
-function setPos(x){var r=hero.getBoundingClientRect();var p=((x-r.left)/r.width)*100;p=Math.max(20,Math.min(80,p));left.style.width=p+'%';divider.style.left=p+'%';handle.style.left=p+'%';photoLeft.style.clipPath='inset(0 '+(100-p)+'% 0 0)';photoRight.style.clipPath='inset(0 0 0 '+p+'%)'}
+var hero=document.getElementById('splitHero'),left=document.getElementById('splitLeft'),divider=document.getElementById('splitDivider'),handle=document.getElementById('splitHandle'),dragging=false;
+function setPos(x){var r=hero.getBoundingClientRect();var p=((x-r.left)/r.width)*100;p=Math.max(15,Math.min(85,p));left.style.width=p+'%';divider.style.left=p+'%';handle.style.left=p+'%'}
 hero.addEventListener('mousedown',function(e){dragging=true;setPos(e.clientX)});document.addEventListener('mousemove',function(e){if(dragging){e.preventDefault();setPos(e.clientX)}});document.addEventListener('mouseup',function(){dragging=false});
 hero.addEventListener('touchstart',function(e){dragging=true;setPos(e.touches[0].clientX)},{passive:true});document.addEventListener('touchmove',function(e){if(dragging)setPos(e.touches[0].clientX)},{passive:true});document.addEventListener('touchend',function(){dragging=false});
 var ap=50,ad=1,ac=0;var aa=setInterval(function(){ap+=ad*0.3;if(ap>55||ap<45)ad*=-1;ac++;if(ac>100){clearInterval(aa);return}var r=hero.getBoundingClientRect();setPos(r.left+r.width*(ap/100))},30);
 hero.addEventListener('mousedown',function(){clearInterval(aa)});hero.addEventListener('touchstart',function(){clearInterval(aa)});
 
-/* FORMATS */
 var formats=[
 {icon:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>',iconBg:'rgba(255,107,107,0.08)',title:"Short-Form Video",desc:"Reels, YouTube Shorts, snackable video content. I write hooks, scripts, and visual direction for sub-60s content designed for thumb-stopping engagement.",links:[{label:"UGC Ad - Delay Spray",href:"https://www.instagram.com/reel/DObBAG9DaeW/"},{label:"Launch Video",href:"https://www.instagram.com/reel/DItI8bbT3y7"},{label:"Moment Marketing",href:"https://www.instagram.com/p/DPBDW5IiCwr/"},{label:"Bloom Series",href:"https://www.instagram.com/reel/DLsFo7nSm2i/"},{label:"Bloom Series 2",href:"https://www.instagram.com/reel/DP1Ci3tEsEM/"}],thumbs:[],thumbLinks:[]},
 {icon:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6C5CE7" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="3"/><line x1="8" y1="2" x2="8" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg>',iconBg:'rgba(108,92,231,0.08)',title:"Long-Form Video",desc:"YouTube videos, brand films, product explainers, founder interviews. I develop scripts, brand narrative arcs, and content briefs that balance storytelling with brand messaging.",links:[{label:"Bold Care Vox Pop",href:"https://www.youtube.com/watch?v=BLG_zDcInGE"},{label:"Dr Batra's Podcast",href:"https://www.youtube.com/watch?v=DcYXmDGz3qE"},{label:"Dr Batra's Ad Film",href:"https://www.youtube.com/watch?v=f2gbECm610U"}],thumbs:["https://img.youtube.com/vi/BLG_zDcInGE/mqdefault.jpg","https://img.youtube.com/vi/DcYXmDGz3qE/mqdefault.jpg","https://img.youtube.com/vi/f2gbECm610U/mqdefault.jpg"],thumbLinks:["https://www.youtube.com/watch?v=BLG_zDcInGE","https://www.youtube.com/watch?v=DcYXmDGz3qE","https://www.youtube.com/watch?v=f2gbECm610U"],wide:true},
